@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
+import SplashScreen from './components/SplashScreen';
 import { ACHIEVEMENTS } from './data/achievements';
 import { CORE_LEVELS, FIRST_LEVEL_ID, TIERS, levelDifficulty } from './data/levels';
 import { AchievementPanel } from './components/AchievementPanel';
@@ -513,10 +514,11 @@ function App() {
   };
 
   if (!selectedLevel) {
-    return <main className="min-h-screen bg-slate-950 p-6 text-slate-100">No levels available.</main>;
+    return <SplashScreen><main className="min-h-screen bg-slate-950 p-6 text-slate-100">No levels available.</main></SplashScreen>;
   }
 
   return (
+    <SplashScreen>
     <main className="min-h-screen bg-[radial-gradient(circle_at_top,_#164e63_0%,_#020617_55%)] px-4 py-6 text-slate-100">
       <div className="mx-auto max-w-[1480px]">
         <header className="mb-4 rounded-2xl border border-slate-700 bg-slate-900/70 p-4 backdrop-blur-xl">
@@ -739,6 +741,7 @@ function App() {
         />
       ) : null}
     </main>
+    </SplashScreen>
   );
 }
 
